@@ -1,2 +1,2 @@
 # TallerBasesDeDatos-UCSC
-This repository (in spanish language) contains study material, codes, and exercises solved by me in the Databases Laboratory course taught at UCSC in the 2024-1 semester.
+Este repositorio contiene material de estudio, códigos y ejercicios resueltos por mí en el curso de Taller de Bases de Datos (IN1078C) impartido en la UCSC (específicamente en el semestre 2024-1).
