@@ -22,5 +22,5 @@ CREATE OR REPLACE VIEW cant_monum_nac_patr_naturales AS
             				JOIN patrimonio_natural USING(id_organizacion)
         				GROUP BY region.cod_region) patr_nat ON region.cod_region = patr_nat.cod_region);
 
-/* Uso */
+-- Uso
 SELECT * FROM cant_monum_nac_patr_naturales;

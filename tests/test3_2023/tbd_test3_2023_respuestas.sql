@@ -1,4 +1,4 @@
-/* Test 3 (2023) - Taller de Bases de Datos (IN1078C) */
+/* Test 3 (2023) | Taller de Bases de Datos (IN1078C) */
 
 -- PREGUNTA 1 --
 /*
@@ -8,7 +8,7 @@
  */
 
 CREATE OR REPLACE FUNCTION datos_predio()
-RETURNS SETOF RECORD AS $$
+	RETURNS SETOF RECORD AS $$
 
 DECLARE
 	d_predio CURSOR FOR (SELECT cod_predio, nombre, superficie_total, 0::integer AS patios_acopio,
@@ -38,7 +38,7 @@ BEGIN
 	END LOOP;
 	CLOSE d_predio;
 	
-END; $$ LANGUAGE plpgsql VOLATILE;
+END; $$ LANGUAGE 'plpgsql' VOLATILE;
 
 -- Uso
 SELECT * FROM datos_predio() AS(codigo integer, forestal varchar, superficie_total integer,
@@ -51,7 +51,7 @@ SELECT * FROM datos_predio() AS(codigo integer, forestal varchar, superficie_tot
  */
 
 CREATE OR REPLACE FUNCTION verifica_bosque_faena()
-RETURNS SETOF RECORD AS $$
+	RETURNS SETOF RECORD AS $$
 
 DECLARE
 	reg_predio CURSOR FOR(SELECT b.cod_bosque, p.nombre_predio, b.superficie_bosque, 0::integer AS
@@ -94,7 +94,7 @@ SELECT * FROM verifica_bosque_faena() AS (cod_bosque integer, nombre_predio varc
  */
 
 CREATE OR REPLACE FUNCTION verificar_predio(nombre varchar)
-RETURNS BOOL AS $$
+	RETURNS BOOL AS $$
 
 BEGIN
 	IF EXISTS(SELECT nombre_predio
@@ -113,7 +113,7 @@ END; $$ LANGUAGE 'plpgsql';
  */
 
 CREATE OR REPLACE FUNCTION buscar_contratista(nombre varchar)
-RETURNS BOOL AS $$
+	RETURNS BOOL AS $$
 
 DECLARE
 	verifica_nombre varchar;
@@ -137,7 +137,7 @@ END; $$ LANGUAGE 'plpgsql';
  */
 
 CREATE OR REPLACE FUNCTION comprobar_forestal(varchar)
-RETURNS VARCHAR AS $BODY$
+	RETURNS VARCHAR AS $BODY$
 
 DECLARE
 	nombre_buscado alias FOR $1;
@@ -154,7 +154,7 @@ BEGIN
 		RETURN 'false';
 	END IF;
 
-END; $BODY$ LANGUAGE plpgsql;
+END; $BODY$ LANGUAGE 'plpgsql';
 
 -- PREGUNTA 3 --
 /*
@@ -177,7 +177,7 @@ END; $BODY$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION verifica_tipo_instalacion(instalacion_codigo integer,
 													 instalacion_tipo varchar(20))
-RETURNS TEXT AS $$
+	RETURNS TEXT AS $$
 
 DECLARE
 	aux_cant_mantencion integer;
@@ -222,7 +222,7 @@ END; $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION verificar_bosque_especie(cod_bosque_param integer,
 													especie_param varchar)
-RETURNS TEXT AS $$
+	RETURNS TEXT AS $$
 
 DECLARE
 	cod_bosque_aux integer;
@@ -271,7 +271,7 @@ END; $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION verificar_bosque_predio(cod_bosque_param integer,
 												   cod_predio_param integer)
-RETURNS TEXT AS $$
+	RETURNS TEXT AS $$
 
 DECLARE
 	cod_bosque_aux integer;

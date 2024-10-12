@@ -1,4 +1,5 @@
-/* Ejercicios Triggers: Base de Datos "Contrata Servicio" - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Triggers: Base de Datos "Contrata Servicio" */
+/* Taller de Bases de Datos (IN1078C) */
 
 /* 
  * 1. Cree un trigger que verifique que la fecha de inicio y fecha de
@@ -9,7 +10,7 @@
 
 -- Funcion asociada al Trigger
 CREATE OR REPLACE FUNCTION verifica_fecha_before()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 BEGIN
 	IF (new.fecha_inicio > new.fecha_termino) THEN 
@@ -18,8 +19,8 @@ BEGIN
 	ELSE
 		RETURN new;
 	END IF;	
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 -- Trigger para INSERT
 CREATE TRIGGER verificador_fecha_before_t
@@ -51,7 +52,8 @@ VALUES (9, '2022-01-01', '2022-07-01', 7679982, 13586124, 5);
 
 -- Insert
 CREATE OR REPLACE FUNCTION actualiza_contratos_insert()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
+
 DECLARE 
 	numero_contratos integer;
 
@@ -67,8 +69,8 @@ BEGIN
 	WHERE rut = new.vendedor;
 
 	RETURN new;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER actualizador_contratos_insert_t
 AFTER INSERT ON contrato
@@ -81,7 +83,8 @@ VALUES (10, '2022-05-01', '2023-06-01', 7679982, 13586124, 5);
 
 -- Update
 CREATE OR REPLACE FUNCTION actualiza_contratos_update()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
+
 DECLARE 
 	numero_contratos_anterior integer;
 	numero_contratos integer;
@@ -107,8 +110,8 @@ BEGIN
 	WHERE rut = new.vendedor;
 
 	RETURN new;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER actualizador_contratos_update_t
 AFTER UPDATE OF vendedor ON contrato
@@ -117,7 +120,8 @@ EXECUTE PROCEDURE actualiza_contratos_update();
 
 -- Delete
 CREATE OR REPLACE FUNCTION actualiza_contratos_delete()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
+
 DECLARE 
 	numero_contratos integer;
 
@@ -133,8 +137,8 @@ BEGIN
 	WHERE rut = old.vendedor;
 
 	RETURN new;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER actualizador_contratos_delete_t
 AFTER DELETE ON contrato
@@ -151,7 +155,7 @@ EXECUTE PROCEDURE actualiza_contratos_delete();
  */
 
 CREATE OR REPLACE FUNCTION no_actualizacion()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 DECLARE
 	diferencia integer;
@@ -170,8 +174,8 @@ BEGIN
 			RETURN new;
 		END IF;
 	END IF;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER no_actualizacion_t
 BEFORE UPDATE ON contrato
@@ -185,11 +189,12 @@ EXECUTE PROCEDURE no_actualizacion();
  */
 
 CREATE OR REPLACE FUNCTION verificador_servicio()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 DECLARE 
 	zona_cliente integer;
 	auxiliar record; -- Variable auxiliar de tipo record
+
 BEGIN
 	SELECT INTO zona_cliente zona
 	FROM cliente 
@@ -213,15 +218,16 @@ BEGIN
 		RAISE EXCEPTION 'No existe en la zona 2';
 		RETURN NULL;
 	END IF;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 -- Sin auxiliar
 CREATE OR REPLACE FUNCTION verificador_servicio2()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 DECLARE 
 	zona_cliente integer;
+
 BEGIN
 	SELECT INTO zona_cliente zona
 	FROM cliente 
@@ -238,8 +244,8 @@ BEGIN
 		RAISE EXCEPTION 'No existe en la zona 2';
 		RETURN NULL;
 	END IF;
-END
-$$ LANGUAGE 'plpgsql';
+
+END; $$ LANGUAGE 'plpgsql';
 
 CREATE TRIGGER verificador_servicio_t
 BEFORE INSERT ON contrato

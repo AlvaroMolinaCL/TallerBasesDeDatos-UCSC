@@ -1,4 +1,5 @@
-/* Ejercicios de Base de Datos: Red Social Simple - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Triggers: Base de Datos "Red Social Simple" */
+/* Taller de Bases de Datos (IN1078C) */
 
 /*
  * 1. VERIFICACION: 
@@ -9,9 +10,7 @@
  */
 
 CREATE OR REPLACE FUNCTION verificador_descripcion()
-RETURNS TRIGGER AS $$
-
-DECLARE
+	RETURNS TRIGGER AS $$
 
 BEGIN 
 	IF (new.descripcion_portada LIKE '%idiota%') THEN 
@@ -39,7 +38,7 @@ VALUES (101, 'Hola idiotwas!', 'Roberto Juanito', 'Gran Roberto', current_date, 
  */
 
 CREATE OR REPLACE FUNCTION mayusculador()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 BEGIN 
 	new.nombre := UPPER(new.nombre);
@@ -69,14 +68,14 @@ SET cantidad_respuestas = (SELECT count(codigo)
 						   WHERE publicacion.codigo = respuesta.publicacion);
 						   
 CREATE OR REPLACE FUNCTION actualizador_cantidad_delete()
-RETURNS TRIGGER AS $$
+	RETURNS TRIGGER AS $$
 
 BEGIN
 	UPDATE publicacion
 	SET cantidad_respuestas = cantidad_respuestas - 1
 	WHERE codigo = old.publicacion;
 
-	RETURN null;
+	RETURN NULL;
 
 END; $$ LANGUAGE 'plpgsql';
 
@@ -92,9 +91,10 @@ FOR EACH ROW EXECUTE PROCEDURE actualizador_cantidad_delete();
  */
 
 CREATE OR REPLACE FUNCTION no_bloqueos()
-RETURNS TRIGGER AS $no_bloqueos$
+	RETURNS TRIGGER AS $no_bloqueos$
+
 BEGIN
-	RETURN null;
+	RETURN NULL;
 	
 END; $no_bloqueos$ LANGUAGE 'plpgsql';
 

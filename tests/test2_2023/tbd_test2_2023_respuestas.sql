@@ -1,4 +1,4 @@
-/* Test 2 (2023) - Taller de Bases de Datos (IN1078C) */
+/* Test 2 (2023) | Taller de Bases de Datos (IN1078C) */
 
 -- PREGUNTA 1 --
 /*
@@ -15,7 +15,7 @@
 -- Si no es menor o igual, se retorna NULL.
 
 CREATE OR REPLACE FUNCTION inserta_desastre_bosque()
-    RETURNS trigger AS $BODY$
+    RETURNS TRIGGER AS $BODY$
 
 DECLARE
 	sup_bosque integer;
@@ -51,7 +51,7 @@ FOR EACH ROW EXECUTE FUNCTION inserta_desastre_bosque();
  */
 
 CREATE OR REPLACE FUNCTION inserta_faena()
-    RETURNS trigger AS $BODY$
+    RETURNS TRIGGER AS $BODY$
 	
 DECLARE
 	sup_bosque integer;
@@ -87,7 +87,7 @@ FOR EACH ROW EXECUTE FUNCTION inserta_faena();
  */
 
 CREATE OR REPLACE FUNCTION inserta_mantencion_instalacion()
-    RETURNS trigger AS $BODY$
+    RETURNS TRIGGER AS $BODY$
 	
 DECLARE
 	sup_instalacion integer;

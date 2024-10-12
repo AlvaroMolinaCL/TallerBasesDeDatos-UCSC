@@ -1,4 +1,5 @@
-/* Ejercicio Triggers: Base de Datos "Ordenes Mantenimiento" - Taller de Bases de Datos (IN1078C) */
+/* Ejercicio Triggers: Base de Datos "Ordenes Mantenimiento" */
+/* Taller de Bases de Datos (IN1078C) */
 
 /*
  * 1. Construya un trigger en la tabla REPUESTO_ORDEN para que cada vez que se INSERTA un nuevo repuesto a 
@@ -7,7 +8,7 @@
  */
 
 CREATE OR REPLACE FUNCTION inserta_rep_orden()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 
 DECLARE
     valor_rep integer;
@@ -35,7 +36,7 @@ FOR EACH ROW EXECUTE PROCEDURE inserta_rep_orden();
  */
 
 CREATE OR REPLACE FUNCTION inserta_rep_orden()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 
 DECLARE
     valor_rep integer;
@@ -70,7 +71,7 @@ FOR EACH ROW EXECUTE PROCEDURE inserta_rep_orden();
  */
 
 CREATE OR REPLACE FUNCTION inserta_rep_orden()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 
 DECLARE
     valor_rep integer;
@@ -109,7 +110,7 @@ FOR EACH ROW EXECUTE PROCEDURE inserta_rep_orden();
  */
 
 CREATE OR REPLACE FUNCTION elimina_rep_orden()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 
 DECLARE
     valor_rep integer;
@@ -144,7 +145,7 @@ FOR EACH ROW EXECUTE PROCEDURE elimina_rep_orden();
  */
 
 CREATE OR REPLACE FUNCTION actualiza_rep_orden()
-RETURNS TRIGGER AS $$
+    RETURNS TRIGGER AS $$
 
 DECLARE
     valor_rep integer;

@@ -1,4 +1,4 @@
-/* Ejercicios Guía Subconsultas - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Guía Subconsultas | Taller de Bases de Datos (IN1078C) */
 
 /*
  * a) Listar todos los repuestos (cod_repuesto, nombre_repuesto, valor_repuesto, stock_repuesto)

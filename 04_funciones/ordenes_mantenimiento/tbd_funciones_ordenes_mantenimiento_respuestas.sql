@@ -1,4 +1,5 @@
-/* Ejercicios Funciones: Base de Datos "Ordenes Mantenimiento" - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Funciones: Base de Datos "Ordenes Mantenimiento" */
+/* Taller de Bases de Datos (IN1078C) */
 
 /*
  * Ejemplo 1: El siguiente código crea una función que recibe dos parámetros de tipo entero y retorna
@@ -6,7 +7,7 @@
  */
 
 CREATE OR REPLACE FUNCTION ejemplo(integer, integer)
-RETURNS integer AS $$
+	RETURNS INTEGER AS $$
 
 DECLARE
 	numero1 ALIAS FOR $1; -- Le da un nombre al argumento 1
@@ -29,7 +30,7 @@ SELECT ejemplo(2, 2);
  */
 
 CREATE OR REPLACE FUNCTION ejemplo_potencia(integer, integer)
-RETURNS integer AS $$
+	RETURNS INTEGER AS $$
 
 DECLARE
 	numero1 ALIAS FOR $1; -- Le da un nombre al argumento 1
@@ -52,7 +53,7 @@ SELECT ejemplo_potencia(3, 3);
 
 CREATE OR REPLACE FUNCTION buscar_supervisor(varchar) -- Se le va a pasar por parámetro
 													  -- un argumento de tipo varchar.
-RETURNS bool AS $$ -- Retorna un booleano (verdadero o falso).
+	RETURNS BOOL AS $$ -- Retorna un booleano (verdadero o falso).
 
 DECLARE
 	nombre_buscar ALIAS FOR $1; -- Le da un nombre al argumento 1.
@@ -83,7 +84,7 @@ SELECT buscar_supervisor('Jose');
  */
 
 CREATE OR REPLACE FUNCTION ordenes_supervisor(nombre_buscar varchar)
-RETURNS integer AS $$
+	RETURNS INTEGER AS $$
 
 DECLARE
 	cantidad_orden integer;
@@ -111,7 +112,7 @@ SELECT ordenes_supervisor('Maria');
  */
 
 CREATE OR REPLACE FUNCTION busca_repuesto(varchar)
-RETURNS bool AS $$
+	RETURNS BOOL AS $$
 
 DECLARE
 	nombre_buscar ALIAS FOR $1;
@@ -131,7 +132,7 @@ BEGIN
 END; $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION uso_repuesto(varchar)
-RETURNS text AS $$
+	RETURNS TEXT AS $$
 
 DECLARE
 	nombre_buscar ALIAS FOR $1;
@@ -160,7 +161,7 @@ SELECT uso_repuesto('polea');
  */
 
 CREATE OR REPLACE FUNCTION busca_empresa(varchar)
-RETURNS bool AS $$
+	RETURNS BOOL AS $$
 
 DECLARE
 	nombre_buscar ALIAS FOR $1;
@@ -180,7 +181,7 @@ BEGIN
 END; $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION empresa_tiene_ordenes(varchar)
-RETURNS bool AS $$
+	RETURNS BOOL AS $$
 
 DECLARE
 	nombre_buscar ALIAS FOR $1;
@@ -214,7 +215,7 @@ SELECT empresa_tiene_ordenes('Prime');
 
 CREATE OR REPLACE FUNCTION ord_mant_supervisadas_empresa(nombre_sup_buscar varchar,
 														 nombre_emp_buscar varchar)
-RETURNS text AS $$
+	RETURNS TEXT AS $$
 
 DECLARE
 	cantidad_orden integer;

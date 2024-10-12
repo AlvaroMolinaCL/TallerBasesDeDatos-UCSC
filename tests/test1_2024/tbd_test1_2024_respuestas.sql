@@ -1,4 +1,4 @@
-/* Test 1 (2024) - Taller de Bases de Datos (IN1078C) */
+/* Test 1 (2024) | Taller de Bases de Datos (IN1078C) */
 
 -- PREGUNTA 1 --
 

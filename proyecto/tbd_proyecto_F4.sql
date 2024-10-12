@@ -45,5 +45,5 @@ BEGIN
 	
 END; $$ LANGUAGE plpgsql VOLATILE;
 
-/* Uso */
+-- Uso
 SELECT * FROM listar_trabajadores_museos_por_region();

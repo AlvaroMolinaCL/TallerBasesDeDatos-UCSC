@@ -1,4 +1,29 @@
-/* Ejercicios Vistas: Base de Datos "Contrata Servicio" - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Vistas: Base de Datos "Contrata Servicio" */
+/* Taller de Bases de Datos (IN1078C) */
+
+/*
+ * 1. Ejercicio 5 JOIN y Subquery: Seleccionar a todos los clientes 
+ * junto  al  número  total  de  servicios  a  los  que  pueden  acceder 
+ * (revisar  las  zonas  donde  está  disponible  cada  servicio  y  la  zona 
+ * asociada al cliente). Ordernar de mayor a menor según el número 
+ * de servicios.
+ */
+
+SELECT rut, cliente.nombre, COUNT(codigo_servicio) AS servicios
+FROM cliente LEFT JOIN zona ON(zona = codigo)
+     LEFT JOIN disponibilidad ON(codigo_zona = codigo)
+GROUP BY rut
+ORDER BY servicios DESC;
+
+-- Vista
+CREATE OR REPLACE VIEW vista_clientes
+AS (SELECT rut, cliente.nombre, COUNT(codigo_servicio) AS servicios
+    FROM cliente LEFT JOIN zona ON(zona = codigo)
+         LEFT JOIN disponibilidad ON(codigo_zona = codigo)
+    GROUP BY rut
+    ORDER BY servicios DESC);
+
+SELECT * FROM vista_clientes;
 
 /*
  * 2. Cree las vistas necesarias para que se muestren unicamente los datos de las zonas 
@@ -59,6 +84,14 @@ GROUP BY servicio.codigo;
 SELECT servicio.codigo, servicio.nombre, COUNT(contrato.codigo) AS disponibles
 FROM contrato RIGHT JOIN servicio ON (servicio = servicio.codigo)
 GROUP BY servicio.codigo;
+
+-- Vista
+CREATE OR REPLACE VIEW servicios_contratos
+AS (SELECT servicio.codigo, servicio.nombre, COUNT(contrato.codigo) AS disponibles
+    FROM contrato RIGHT JOIN servicio ON (servicio = servicio.codigo)
+    GROUP BY servicio.codigo);
+
+SELECT * FROM servicios_contratos;
 
 /*
  * 5. Cree una vista similar a la del ejercicio 5, pero esta vez solo deben considerarse 

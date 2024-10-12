@@ -1,4 +1,4 @@
-/* Test 1 (2020) - Taller de Bases de Datos (IN1078C) */
+/* Test 1 (2020) | Taller de Bases de Datos (IN1078C) */
 
 /*
  * 1. Seleccione los datos de cada cliente con el monto total de los movimientos de su cuenta corriente 

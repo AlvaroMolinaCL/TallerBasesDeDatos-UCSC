@@ -1,4 +1,5 @@
-/* Ejercicios Subconsultas: Base de Datos "Libros y Editoriales" - Taller de Bases de Datos (IN1078C) */
+/* Ejercicios Subconsultas: Base de Datos "Libros y Editoriales" */
+/* Taller de Bases de Datos (IN1078C) */
 
 /*
  * 1. Consulta simple: seleccione todos los libros registrados,
