@@ -23,6 +23,6 @@ Este repositorio contiene material de estudio, códigos y ejercicios resueltos e
 2. [Ejercicios con BD "Ordenes Mantenimiento"](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/04_funciones/ordenes_mantenimiento) (incluye Funciones con Cursores)
 
 ### Ejercicios resueltos
-1. [Consultas Multitabla / Subconsultas](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests) ([1](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2020), [2](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2023), [3](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2024))
+1. [Consultas Multitabla (JOIN) / Subconsultas](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests) ([1](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2020), [2](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2023), [3](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test1_2024))
 2. [Vistas y Triggers](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test2_2023)
 3. [Funciones (incluyendo Cursores)](https://github.com/AlvaroMolinaCL/TallerBasesDeDatos-UCSC/tree/main/tests/test3_2023)
